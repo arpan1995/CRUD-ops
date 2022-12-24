@@ -5,11 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ManageProductsComponent } from './manage-product/manage-product.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HighlightDirective } from './highlight.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ManageProductsComponent
+    ManageProductsComponent,
+    HighlightDirective
   ],
   imports: [
     BrowserModule,
