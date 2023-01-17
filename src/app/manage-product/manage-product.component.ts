@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { ArpanProductsService } from '../arpan-products.service';
 
 @Component({
@@ -7,40 +8,56 @@ import { ArpanProductsService } from '../arpan-products.service';
   styleUrls: ['./manage-product.component.css']
 })
 export class ManageProductsComponent implements OnInit {
+  browserLang: any;
+selectedLanguage(arg0: string) {
+throw new Error('Method not implemented.');
+}
 
-  constructor(private _manageProduct:ArpanProductsService) { };
+  constructor(public translate: TranslateService, private _manageProduct:ArpanProductsService) { 
+    translate.addLangs(['en', 'ch']);
+    translate.setDefaultLang('en');
 
-  public dataTitle = "Your Selected Products are showing below";
+    // const browserLang = this.translate.getBrowserLang();
 
+    // try {
+    //   translate.use(this.browserLang.match(/en|ch/) ? this.browserLang : 'en');
+    // } catch (error) {
+    //   console.log(error);
+    // }
+  };
+  
+  public dataTitle = "Prod.Product-Select ";
+  
   public fetching = false
   public editIndex: any;
+  switchLang:string = 'en'
 
   public products = [
-    {
-    id: '',
-    name: '',
-    price: ''
-  }
   //   {
-  //   id: 'p1',
-  //   name: 'Laptop',
-  //   price: 45000
-  // },
-  // {
-  //   id: 'p2',
-  //   name: 'LMobile',
-  //   price: 10000
-  // },
-  // {
-  //   id: 'p3',
-  //   name: 'TV',
-  //   price: 7000
-  // },
-  // {
-  //   id: 'p4',
-  //   name: 'Fridge',
-  //   price: 25000
+  //   id: '',
+  //   name: '',
+  //   price: ''
   // }
+    {
+    id: 'p1',
+    name: 'Laptop',
+    price: 45000
+  },
+  {
+    id: 'p2',
+    name: 'LMobile',
+    price: 10000
+  },
+  {
+    id: 'p3',
+    name: 'TV',
+    price: 7000
+  },
+  {
+    id: 'p4',
+    name: 'Fridge',
+    price: 25000
+  }
 ]
 
   ngOnInit(): void {
@@ -70,6 +87,8 @@ export class ManageProductsComponent implements OnInit {
     )
   }
 
+  
+
   onFetchProduct(){
     this.fetching = true
     this._manageProduct.fetchProduct().subscribe(
@@ -82,6 +101,11 @@ export class ManageProductsComponent implements OnInit {
     }
     )
   }
+
+  // selectedLanguage(lang){
+  //   console.log(lang);
+    
+  // }
 
   onDeleteProduct(id: number){
     if(confirm("Do you really want to delete")){

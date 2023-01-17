@@ -1,43 +1,60 @@
 <div class="para-area">
-    <h2 appHighlight class="text-center">Product Management Wizard</h2>
+    <h2 appHighlight class="text-center">{{'HOME.TITLE' | translate}}</h2>
+    <div class="block right">
+      <!-- <ul>
+        <li>
+          <a routerLink="" [class.active]="switchLang=='ch'" (click)="selectedLanguage('ch')">CH</a>
+        </li>
+        <li>
+          <a routerLink="" [class.active]="switchLang=='en'" (click)="selectedLanguage('en')">Eng</a>
+        </li>
+      </ul>
+    </div> -->
+
+    <label>
+      {{ 'HOME.SELECT' | translate }}
+      <select #langSelect (change)="translate.use(langSelect.value)">
+        <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang">{{ lang }}</option>
+      </select>
+    </label>
  
     <div class="container border-top pt-5">
       <div class="row">
         <div class="col-md-6">
-          <h2> Add/Update Products Here</h2>
+          <h2> {{ 'HOME.UPDATE' | translate}}</h2>
           <form>
             <div class="form-group">
-              <label for="id">Product ID</label>
+              <label for="id">{{'Product.Product-ID' | translate}}</label>
               <input type="text" class="form-control" id="id" #id>
             </div>
             <div class="form-group">
-              <label for="name">Product Name</label>
+              <label for="name">{{'Product.Product-Name' | translate}}</label>
               <input type="text" class="form-control" id="name" #name>
             </div>
             <div class="form-group">
-              <label for="name">Product Price</label>
+              <label for="name">{{'Product.Product-Price' | translate}}</label>
               <input type="text" class="form-control" id="price" #price>
             </div>
             <br>
-            <button type="button" class="btn btn-primary" (click)="onAddProduct(id, name, price)">{{editmode? 'Update Product': 'Add Product'}}</button>
-            <button type="button" class="btn btn-success mx-2" (click)="onSaveProduct()">Save Product</button>
-            <button type="button" class="btn btn-warning" (click)="onFetchProduct()">Fetch Product</button>
+            <button  type="button" class="btn btn-primary" (click)="onAddProduct(id, name, price)">{{(editmode? 'Buttons.Update-button' : 'Buttons.Add-button') | translate}}</button>
+            <button type="button" class="btn btn-success mx-2" (click)="onSaveProduct()">{{'Buttons.Save-button' | translate}}</button>
+            <button type="button" class="btn btn-warning" (click)="onFetchProduct()">{{'Buttons.Fetch-button' | translate}}</button>
           </form>
         </div>
         <br>
         <br>
         <BR>
-        <div class="md-col-6">
-            <h2>{{dataTitle}}</h2>
+        <div class="md-col-6">  
+            <h2 >{{'Prod.Product-Select' | translate }}</h2>
             <table class="table table-success table-striped">
                 <thead class="table-dark">
                     <tr>
-                        <th scope="col">#S/N</th>
+                        <th scope="col">{{'TAG-BAR.S/N' | translate }}</th>
                         <th scope="col">ID</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Price</th>
-                        <th scope="col">Delete</th>
-                        <th scope="col">Edit</th>
+                        <th scope="col">{{'TAG-BAR.Name' | translate }}</th>
+                        <th scope="col">{{'TAG-BAR.Price' | translate }}</th>
+                        <th scope="col">{{'TAG-BAR.Delete' | translate }}</th>
+                        <th scope="col">{{'TAG-BAR.Edit' | translate }}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -46,8 +63,8 @@
                         <td>{{product.id}}</td>
                         <td>{{product.name}}</td>
                         <td>{{product.price}}</td>
-                        <td (click)="onDeleteProduct(i)"><button>Delete</button></td>
-                        <td (click)="onEditProduct(i)"><button>Edit</button></td>
+                        <td (click)="onDeleteProduct(i)"><button>{{'TAG-BAR.Delete' | translate }}</button></td>
+                        <td (click)="onEditProduct(i)"><button>{{'TAG-BAR.Edit' | translate }}</button></td>
                     </tr>
                 </tbody>
             </table>

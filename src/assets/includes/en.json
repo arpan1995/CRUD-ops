@@ -1,0 +1,29 @@
+{
+    "HOME": {
+      "TITLE": "Product Management Wizard",
+      "SELECT": "Change language",
+      "UPDATE": "Add/Update Products Here"
+    },
+    "Product": {
+        "Product-ID": "Product ID",
+        "Product-Name": "Product Name",
+        "Product-Price": "Product Price"
+    },
+    "Buttons": {
+        "Add-button": "Add Products",
+        "Save-button": "Save Products",
+        "Fetch-button": "Fetch Products",
+        "Update-button": "Update Product"
+    },
+    "Prod": {
+    "Product-Select": "Your Selected Products are showing below#"
+    },
+    "TAG-BAR": {
+        "S/N": "S/N",
+        "ID": "ID",
+        "Name": "Name",
+        "Price": "Price",
+        "Delete": "Delete",
+        "Edit": "Edit"
+    }
+}

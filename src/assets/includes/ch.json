@@ -1,0 +1,29 @@
+{
+    "HOME": {
+      "TITLE": "产品管理向导",
+      "SELECT": "改变语言",
+      "UPDATE": "在此处添加/更新产品"
+    },
+    "Product": {
+        "Product-ID": "产品编号",
+        "Product-Name": "产品名称",
+        "Product-Price": "产品价格"
+    },
+    "Buttons": {
+        "Add-button": "添加产品",
+        "Save-button": "保存产品",
+        "Fetch-button": "获取产品",
+        "Update-button": "更新产品"
+    },
+    "Prod": {
+    "Product-Select": "您选择的产品如下所示#"
+    },
+    "TAG-BAR": {
+        "S/N": "序列号",
+        "ID": "ID",
+        "Name": "名称",
+        "Price": "价格",
+        "Delete": "删除",
+        "Edit": "编辑"
+    }
+}
